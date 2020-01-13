@@ -1,1 +1,1 @@
-# AME470spring2020assigment
+# AME470spring2020assigments
