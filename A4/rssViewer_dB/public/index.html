@@ -12,6 +12,15 @@
       });
     }
 
+    function deleteFeed(){
+      var a = currFeedUrl;
+      var url = "./deletefeed?a=" + encodeURIComponent(a);
+      loadFile(url, function(data){
+        getAllFeeds();
+        backToFeeds();
+      });
+    }
+
     function start(){
       getAllFeeds();
     }
@@ -31,10 +40,12 @@
     }
 
     var currFeedData = {}
+    var currFeedUrl;
 
     function feedSelected(index)
     {
       var url = allFeeds[index].url;
+      currFeedUrl = url;
       loadFile("./getrss?a=" + url, function(data){
        currFeedData = JSON.parse(data);
        var allItems = currFeedData.feed.results;
